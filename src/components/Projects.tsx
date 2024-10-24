@@ -9,7 +9,7 @@ function Projects({theme}:ProjectsProps) {
 
       const favoriteStorage:Project[] = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites') as string) : [];
 
-    const  [projectss, setProjects] = useState<Project[]>(projects)
+    const  [projectss] = useState<Project[]>(projects)
     const [favorite, setFavorite] = useState<Project[]>(favoriteStorage)
 
     

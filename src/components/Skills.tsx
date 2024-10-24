@@ -4,7 +4,7 @@ import { Icons, icons } from "../data/icons"
 
 function Skills() {
 
-    const [skill, setSkill] = useState<Icons[]>(icons)
+    const [skill] = useState<Icons[]>(icons)
     return (
         <div>
 
