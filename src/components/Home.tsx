@@ -24,7 +24,7 @@ function Home({ theme }: HomeProps) {
         </section>
 
         <section className="max-w-lg text-left">
-          <h1 className="text-4xl font-bold mb-5">Just a Frontend Developer</h1>
+          <h1 className="text-4xl font-bold mb-5">Just a Developer</h1>
 
           <p className="mb-10">Hi! I'm Christian, a Systems Engineering student passionate about frontend development. 
             I enjoy creating user-friendly interfaces and transforming ideas into interactive, efficient products.</p>
