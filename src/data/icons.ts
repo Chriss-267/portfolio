@@ -31,10 +31,22 @@ export const icons:Icons[] = [
     },
     {
         id:7,
-        icon: "git"
+        icon: "php"
     },
     {
         id:8,
+        icon: "laravel"
+    },
+    {
+        id:9,
+        icon: "mysql"
+    },
+    {
+        id:10,
         icon: "github"
+    },
+    {
+        id:11,
+        icon: "git"
     }
 ]

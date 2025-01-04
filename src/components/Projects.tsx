@@ -7,7 +7,7 @@ type ProjectsProps = {
 
 function Projects({theme}:ProjectsProps) {
 
-      const favoriteStorage:Project[] = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites') as string) : [];
+     const favoriteStorage:Project[] = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites') as string) : [];
 
     const  [projectss] = useState<Project[]>(projects)
     const [favorite, setFavorite] = useState<Project[]>(favoriteStorage)
@@ -57,11 +57,19 @@ function Projects({theme}:ProjectsProps) {
             <section className='md:flex justify-between gap-8 items-center'>
               <section>
                 <section className='flex justify-center'>
-                  <img src={`${projectt.img}.png`} alt="project" className='mt-5 max-w-xs md:max-w-md border-y-orange-400 border-x-violet-700 border-2 hover:shadow-[0px_0px_50px_rgba(138,43,226,0.5)]' loading="lazy" />
+                <a href= {projectt.link} target='_blank'>
+                    <img src={`${projectt.img}.png`} alt="project" className='mt-5 max-w-xs md:max-w-md border-y-orange-400 border-x-violet-700 border-2 hover:shadow-[0px_0px_50px_rgba(138,43,226,0.5)]' loading="lazy" />
+
+                </a>
+                  
                 </section>
               
               <section className='flex items-center justify-between'>
-                <h2 className='text-center p-3 font-bold'>{projectt.titulo}</h2>
+                <section className='flex items-center'>
+                  <a href={projectt.github} target='_blank'> <img  src={theme ? "/public/skills/githubWhite.svg" : "/public/skills/githubBlack.svg"} alt="github" className='w-[5vw] md:w-[2vw]'/></a>
+                  <h2 className='text-center p-3 font-bold'>{projectt.titulo}</h2>
+                </section>
+                
                 <i className={`fa-solid fa-heart   ${isFavorite(projectt) ? "text-red-500" : "text-gray-200"} cursor-pointer`}
                  onClick={()=> addFavorite(projectt)}
                 
@@ -85,7 +93,7 @@ function Projects({theme}:ProjectsProps) {
                   </button>
                 ))}
               </section>
-                <a href= {projectt.link} className={` ${theme ? "text-violet-600 hover:text-violet-300" : "text-violet-950 hover:text-violet-600"} `} target='_blank'>Visit Site {" "}<i className="fa-solid fa-arrow-right"></i></a>
+                
               </section>
 
               

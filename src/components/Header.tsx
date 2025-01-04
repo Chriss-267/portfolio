@@ -5,7 +5,7 @@ type HeaderProps ={
 
 function Header({theme, changeTheme}:HeaderProps) {
   return (
-    <header className={`w-full md:h-[10vh] lg:h-[20vh] ${theme ? " text-white": "text-black"}`}>
+    <header className={`w-full md:h-[10vh] lg:h-[20vh] ${theme ? " text-white": "text-black"} `}>
         <nav className="py-3 space-y-6 font-bold  h-full w-full text-center md:flex md:justify-between lg:justify-evenly items-center md:space-y-0">
             <section className="md:w-[35vw]">
                 <h2 className="text-lg" translate="no">Christian Monterrosa</h2>
