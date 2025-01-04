@@ -66,7 +66,7 @@ function Projects({theme}:ProjectsProps) {
               
               <section className='flex items-center justify-between'>
                 <section className='flex items-center'>
-                  <a href={projectt.github} target='_blank'> <img  src={theme ? "/public/skills/githubWhite.svg" : "/public/skills/githubBlack.svg"} alt="github" className='w-[5vw] md:w-[2vw]'/></a>
+                  <a href={projectt.github} target='_blank'> <img  src={theme ? "/skills/githubWhite.svg" : "/skills/githubBlack.svg"} alt="github" className='w-[5vw] md:w-[2vw]'/></a>
                   <h2 className='text-center p-3 font-bold'>{projectt.titulo}</h2>
                 </section>
                 
