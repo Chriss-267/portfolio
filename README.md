@@ -1,8 +1,9 @@
-# Portfolio Christian Monterrosa
+# 🚀 Portfolio Christian Monterrosa
 
-## Deployment
+## 🌐 Live Demo
 
-You can see the live version of the project here: [Live Demo](https://portfolio-web-chris.netlify.app/)
+🎉 Check out the project live in production!  
+👉 **[Click here to view the live version](https://portfolio-web-chris.netlify.app/)** 👈
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
