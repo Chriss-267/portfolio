@@ -1,4 +1,8 @@
-# React + TypeScript + Vite
+# Portfolio Christian Monterrosa
+
+## Deployment
+
+You can see the live version of the project here: [Live Demo](https://portfolio-web-chris.netlify.app/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
