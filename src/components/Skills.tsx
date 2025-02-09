@@ -7,6 +7,8 @@ function Skills() {
     const [skill] = useState<Icons[]>(icons)
     return (
         <div>
+            <section className="mt-14">
+            <h3 className="font-bold text-3xl text-center">Skills</h3>
 
             <section className="flex flex-wrap lg:w-[50vw] mx-auto justify-center gap-5 mt-8">
 
@@ -17,10 +19,7 @@ function Skills() {
 
                 ))}
             </section>
-
-
-
-
+          </section>
 
         </div>
     )

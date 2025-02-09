@@ -1,108 +1,75 @@
-import  { useState , useEffect} from 'react'
+import  { useState} from 'react'
 import { Project, projects } from '../data/bd'
+import { usePortfolio } from '../Hooks/usePortfolio';
 
-type ProjectsProps = {
-  theme:boolean
-}
 
-function Projects({theme}:ProjectsProps) {
 
-     const favoriteStorage:Project[] = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites') as string) : [];
+function Projects() {
+
+
+    const {theme, handleClickModal,handleSetProject} = usePortfolio()
+
+ 
 
     const  [projectss] = useState<Project[]>(projects)
-    const [favorite, setFavorite] = useState<Project[]>(favoriteStorage)
-
     
-
-    useEffect(() => {
-        localStorage.setItem("favorites", JSON.stringify(favorite))
-    }, [favorite])
-
-    
-    
-     
-      
-     
-
-    const addFavorite = (item:Project) =>{
-          const itemExists = favorite.find(project => project.id === item.id);
-
-          if(itemExists){
-            const updateFavorite = favorite.filter(project => project.id !== item.id);
-            setFavorite(updateFavorite)
-            
-          }else{
-            
-            const newItem = item;
-            setFavorite([...favorite, newItem])
-            
-          }
-      
-          
-          
-    }
-
-    const isFavorite = (item: Project) => {
-      return favorite.some(project => project.id === item.id);
-    };
-    
-
     
 
 
   return (
-    <div>
-        {projectss.map(projectt =>(
-          <section  key={projectt.id} className='w-[90vw] lg:w-[70vw] mx-auto mt-5'>
-            <section className='md:flex justify-between gap-8 items-center'>
-              <section>
-                <section className='flex justify-center'>
-                <a href= {projectt.link} target='_blank'>
-                    <img src={`${projectt.img}.png`} alt="project" className='mt-5 max-w-xs md:max-w-md border-y-orange-400 border-x-violet-700 border-2 hover:shadow-[0px_0px_50px_rgba(138,43,226,0.5)]' loading="lazy" />
+    <div className={`${theme ? "text-white" : "text-black"} pt-20`}>
+      <h1 className="text-3xl font-bold text-center ">{`</>What I've Done`}</h1>
+      <div className=" px-2 m-10 grid grid-cols-1 md:grid-cols-3 lg:grid-col-4 gap-2">
+      
+      {projectss.map(projectt =>(
+        <section  key={projectt.id} className={`${theme  ? "bg-neutral-900 hover:bg-neutral-950 group" : "bg-gray-300 hover:bg-white group"} px-4 pt-6 rounded-lg  `}>
 
-                </a>
+          <a href={projectt.link} target='_blank'>
+
+            <img src={`${projectt.img}.png`} alt="project" className=' w-auto rounded-lg' loading="lazy" />
+          </a>
+        
+            {/**seccion titulo icono github y deploy */}
+
+            <section className={`${theme ? "bg-neutral-800 group-hover:bg-neutral-900" : "bg-gray-200 group-hover:bg-gray-100"} my-4 p-4 rounded-lg  space-y-4`}>
+              <section className='flex items-center gap-2'>
+                  <a href={projectt.github} target='_blank'> <img  src={theme ? "/skills/githubWhite.svg" : "/skills/githubBlack.svg"} alt="github" className='w-[5vw] md:w-[2vw]'/></a>
+                  <h2 className='text-center text-xl font-bold'>{projectt.titulo}</h2>
                   
                 </section>
+
+                <section className={`flex justify-between text-sm ${theme ? "text-gray-300" : "text-gray-700"}`}>
+                  <button type='button' onClick={() => {handleClickModal(),
+                                                   handleSetProject(projectt)
+                                                }}
+                  >Information</button>
+                  <a href= {projectt.link} target='_blank' className='flex gap-1 '>Deploy
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+
+                  </a>
+                </section>
+
+            </section>
               
-              <section className='flex items-center justify-between'>
-                <section className='flex items-center'>
-                  <a href={projectt.github} target='_blank'> <img  src={theme ? "/skills/githubWhite.svg" : "/skills/githubBlack.svg"} alt="github" className='w-[5vw] md:w-[2vw]'/></a>
-                  <h2 className='text-center p-3 font-bold'>{projectt.titulo}</h2>
-                </section>
-                
-                <i className={`fa-solid fa-heart   ${isFavorite(projectt) ? "text-red-500" : "text-gray-200"} cursor-pointer`}
-                 onClick={()=> addFavorite(projectt)}
-                
-                ></i>
-                </section>
-                
-                <section className='flex justify-center gap-8'>
-                   <i className="fa-solid fa-backward fa-2x"></i>
-                  <i className="fa-solid fa-circle-pause fa-2x"></i>
-                  <i className="fa-solid fa-forward fa-2x"></i>
-                </section>
-              </section>
               
-              <section >
-                <p className='mt-5 text-xs mb-3 md:text-sm'>{projectt.description}</p>
-                <section className='flex justify-evenly flex-wrap md:gap-2'>
-                {projectt.useTec.map(tec =>(
-                  <button translate="no" className="bg-indigo-950  px-3  py-1 w-28  rounded-lg flex justify-center items-center gap-1 mb-4">
-                    <img className='w-4 mr-1' src={`/usedTec/${tec}.svg`} alt="" />
-                    <p className='text-white text-sm'>{tec}</p>
-                  </button>
-                ))}
-              </section>
-                
-              </section>
+              
+          
+          
 
               
-                
-             
-            </section>
-            </section>
-        ))}
-    </div>
+      
+
+            
+       
+ 
+          
+        </section>
+      ))}
+  </div>
+</div>
+   
   )
 }
 
