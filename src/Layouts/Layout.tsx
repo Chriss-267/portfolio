@@ -194,7 +194,7 @@ export default function Layout() {
       {/* Footer */}
       
         <footer
-          className={`p-12 space-y-4 text-left ${
+          className={`p-6 space-y-4 text-left mt-20 ${
             theme ? "text-white" : "text-black"
           }`}
         >
@@ -206,11 +206,11 @@ export default function Layout() {
             </div>
             <div className="flex justify-start gap-2 ">
               <img src={`${theme ? "../skills/linkedin.svg" : "../skills/linkedingBlack.svg"}`} alt="logo email" className="w-6" />
-              <a href="mailto:christianmonterrosaportillo@gmail.com">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/christian-eduardo-monterrosa-portillo-460916332/" target="_blank">LinkedIn</a>
             </div>
             <div className="flex justify-start gap-2 ">
               <img src={`${theme ? "../skills/githubWhite.svg" : "../skills/githubBlack.svg"}`} alt="logo email" className="w-6" />
-              <a href="mailto:christianmonterrosaportillo@gmail.com">GitHub</a>
+              <a href="mailto:christianmonterrosaportillo@gmail.com" target="_blank">GitHub</a>
             </div>
           </section>
           <p className="pt-6 border-t md:w-1/3 w-full">

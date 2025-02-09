@@ -48,7 +48,7 @@ export default function ModalProyecto() {
       <div className="md:w-1/2 space-y-8">
         
 
-        <h1 className="text-3xl font-bold text-center">{project.titulo}</h1>
+        <h1 className="text-3xl font-bold text-center mt-4">{project.titulo}</h1>
 
         <p className="text-sm text-gray-500 mt-2">{project.description}</p>
         

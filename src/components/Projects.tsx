@@ -19,7 +19,7 @@ function Projects() {
   return (
     <div className={`${theme ? "text-white" : "text-black"} pt-20`}>
       <h1 className="text-3xl font-bold text-center ">{`</>What I've Done`}</h1>
-      <div className=" px-2 m-10 grid grid-cols-1 md:grid-cols-3 lg:grid-col-4 gap-2">
+      <div className=" px-2 m-10 grid grid-cols-1 md:grid-cols-3 lg:grid-col-4 gap-6">
       
       {projectss.map(projectt =>(
         <section  key={projectt.id} className={`${theme  ? "bg-neutral-900 hover:bg-neutral-950 group" : "bg-gray-300 hover:bg-white group"} px-4 pt-6 rounded-lg  `}>
